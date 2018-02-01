@@ -1,0 +1,431 @@
+##########################################
+# (1) LINK INFORMATION                   #
+##########################################
+d:\program files\renesas\hew\tools\renesas\nc30wa\v545r01\bin\ln30.exe @D:\r8cwork\SignalLamp\Debug\SignalLamp.m16cl
+
+# LINK FILE INFORMATION
+startup (D:\r8cwork\SignalLamp\Debug\startup.r30)
+	May  8 11:23:38 2012
+
+lcd (D:\r8cwork\SignalLamp\Debug\lcd.r30)
+	May  8 11:23:37 2012
+
+lcddisp (D:\r8cwork\SignalLamp\Debug\lcddisp.r30)
+	May  8 11:23:38 2012
+
+led (D:\r8cwork\SignalLamp\Debug\led.r30)
+	May  8 11:23:38 2012
+
+signallamp (D:\r8cwork\SignalLamp\Debug\signallamp.r30)
+	May  8 11:23:38 2012
+
+timerx (D:\r8cwork\SignalLamp\Debug\timerx.r30)
+	May  8 11:23:38 2012
+
+ad1utl (D:\r8cwork\Library\Library.lib)
+	Sep  1 10:08:19 2011
+
+intr (D:\r8cwork\Library\Library.lib)
+	Sep  1 10:08:22 2011
+
+intr_cmp0 (D:\r8cwork\Library\Library.lib)
+	Sep  1 10:08:22 2011
+
+intr_ty (D:\r8cwork\Library\Library.lib)
+	Sep  1 10:08:22 2011
+
+lcdutl (D:\r8cwork\Library\Library.lib)
+	Sep  1 10:08:20 2011
+
+ledutl (D:\r8cwork\Library\Library.lib)
+	Sep  1 10:08:20 2011
+
+swutl (D:\r8cwork\Library\Library.lib)
+	Sep  1 10:08:21 2011
+
+lcd1 (D:\r8cwork\Library\Library.lib)
+	Sep  1 10:08:23 2011
+
+_i4mulu (d:\program files\renesas\hew\tools\renesas\nc30wa\v545r01\lib30\r8clib.lib)
+	Jan  6 15:31:33 2010
+
+
+##########################################
+# (2) SECTION INFORMATION                #
+##########################################
+# SECTION                        ATR TYPE    START  LENGTH ALIGN MODULENAME
+data_NE                          ABS DATA    000400 000000       startup
+                                 REL DATA    000400 000004 2     swutl
+data_NO                          REL DATA    000404 000000 2     startup
+                                 REL DATA    000404 000009       led
+                                 REL DATA    00040D 000003       timerx
+                                 REL DATA    000410 000002       swutl
+bss_NE                           ABS DATA    000500 000000       startup
+                                 REL DATA    000500 000002 2     ad1utl
+                                 REL DATA    000502 000008 2     lcdutl
+                                 REL DATA    00050A 000006 2     ledutl
+                                 REL DATA    000510 000004 2     swutl
+bss_NO                           REL DATA    000514 000000 2     startup
+                                 REL DATA    000514 000001       swutl
+stack                            ABS DATA    000600 0000FF       startup
+startup                          ABS CODE    00CC00 000000       startup
+                                 REL CODE    00CC00 000090       startup
+program                          REL CODE    00CC90 000000       startup
+                                 REL CODE    00CC90 000190 2     lcd
+                                 REL CODE    00CE20 000227 2     lcddisp
+                                 REL CODE    00D048 000071 2     led
+                                 REL CODE    00D0BA 0000B9 2     signallamp
+                                 REL CODE    00D174 00004A 2     timerx
+                                 REL CODE    00D1BE 000024 2     ad1utl
+                                 REL CODE    00D1E2 000003       intr
+                                 REL CODE    00D1E5 000003       intr
+                                 REL CODE    00D1E8 00000B       intr_cmp0
+                                 REL CODE    00D1F3 00000B       intr_ty
+                                 REL CODE    00D1FE 000324 2     lcdutl
+                                 REL CODE    00D522 00025A 2     ledutl
+                                 REL CODE    00D77C 00036A 2     swutl
+                                 REL CODE    00DAE6 000008       lcd1
+                                 REL CODE    00DAEE 00000C       lcd1
+                                 REL CODE    00DAFA 00001B       lcd1
+                                 REL CODE    00DB15 00001B       lcd1
+                                 REL CODE    00DB30 000017       lcd1
+                                 REL CODE    00DB47 000018       lcd1
+                                 REL CODE    00DB60 00001C 2     _i4mulu
+rom_NE                           ABS ROMDATA 00F000 000000       startup
+                                 REL ROMDATA 00F000 000004 2     swutl
+rom_NO                           REL ROMDATA 00F004 000000 2     startup
+                                 REL ROMDATA 00F004 0000EC       lcddisp
+                                 REL ROMDATA 00F0F0 00002C       ledutl
+data_NEI                         ABS ROMDATA 00FC00 000000       startup
+                                 REL ROMDATA 00FC00 000004       swutl
+data_NOI                         REL ROMDATA 00FC04 000000 2     startup
+                                 REL ROMDATA 00FC04 000009       led
+                                 REL ROMDATA 00FC0D 000003       timerx
+                                 REL ROMDATA 00FC10 000002       swutl
+interrupt_vector                 ABS CODE    00FF34 00001C       startup
+fix_interrupt_vector             ABS CODE    00FFDC 000024       startup
+# Total -------------------------------------------------------------------
+                                     DATA           000126(0000294) Byte(s)
+                                     ROMDATA        00012E(0000302) Byte(s)
+                                     CODE           000FBC(0004028) Byte(s)
+
+##########################################
+# (3) GLOBAL LABEL INFORMATION           #
+##########################################
+$LCD__putchar      00d2e8  $LCD__putdec       00d35e  $LCD__puthex       00d3ce
+$LCD__puts         00d334  $LCD__setcursol    00d2ae  $LED__put3dec      00d6d0
+$LED__put4dec      00d726  $LED__putchar      00d562  $LED__putdec       00d682
+$LED__puthex       00d612  $LED__ty_int       00d522  $SW__gets          00d81e
+$_lcd1__wait       00daee  $_lcd1__wr_nibbl   00dafa  $_lcd1__wr_nibbl   00db15
+$exit              00cc48  $g_LCDTimeInput    00cfae  $s_TimeEdit        00cce0
+$s_TimeJudge       00cd88  Cmp0               00d1e8  TimerY             00d1f3
+_AD1__getad1       00d1d4  _AD1__initialize   00d1be  _INT_TimerY        00dad6
+_INT_cmp0          00d478  _IntrTimerX        00d174  _LCD__clear        00d290
+_LCD__initialize   00d1fe  _LED__clear        00d660  _LED__initialize   00d53c
+_SW__getchar       00d7d4  _SW__getdec        00d8d0  _SW__getnum        00d888
+_SW__initialize1   00d77c  _SW__initialize2   00d7c2  __i4mulU           00db60
+__lcd1__initial    00dae6  __lcd1__rd_nibbl   00db30  __lcd1__rd_nibbl   00db47
+_di                00d1e5  _ei                00d1e2  _exit              00cc48
+_g_DisplayMainMe   00ce46  _g_DisplayMainMe   00ce94  _g_DisplayReset    00cfda
+_g_DisplayReseti   00d004  _g_DisplaySingal   00cf0c  _g_DisplaySingal   00d02e
+_g_DisplaySingal   00cebe  _g_DisplayTimeEd   00cf48  _g_DisplayTimeEd   00cf84
+_g_DisplayWelcom   00ce20  _g_SingalDisplay   00d048  _g_Time2sDelay     00d1b4
+_g_TimerXInit      00d198  _g_bLEDIsRun       00040d  _g_ctTimeDown      000407
+_g_ctTimeInitial   00040a  _g_ctTimeSet       000404  _main              00d0ba
+_s_SingalSwitch    00cc90  start              00cc00  
+
+##########################################
+# (4) GLOBAL EQU SYMBOL INFORMATION      #
+##########################################
+
+##########################################
+# (5) GLOBAL EQU BIT-SYMBOL INFORMATION  #
+##########################################
+
+##########################################
+# (6) LOCAL LABEL INFORMATION            #
+##########################################
+@ startup ( D:\r8cwork\SignalLamp\Debug\startup.r30 )
+@ lcd ( D:\r8cwork\SignalLamp\Debug\lcd.r30 )
+@ lcddisp ( D:\r8cwork\SignalLamp\Debug\lcddisp.r30 )
+@ led ( D:\r8cwork\SignalLamp\Debug\led.r30 )
+@ signallamp ( D:\r8cwork\SignalLamp\Debug\signallamp.r30 )
+@ timerx ( D:\r8cwork\SignalLamp\Debug\timerx.r30 )
+@ ad1utl ( D:\r8cwork\Library\Library.lib )
+@ intr ( D:\r8cwork\Library\Library.lib )
+@ intr_cmp0 ( D:\r8cwork\Library\Library.lib )
+@ intr_ty ( D:\r8cwork\Library\Library.lib )
+@ lcdutl ( D:\r8cwork\Library\Library.lib )
+@ ledutl ( D:\r8cwork\Library\Library.lib )
+@ swutl ( D:\r8cwork\Library\Library.lib )
+@ lcd1 ( D:\r8cwork\Library\Library.lib )
+@ _i4mulu ( d:\program files\renesas\hew\tools\renesas\nc30wa\v545r01\lib30\r8clib.lib )
+
+##########################################
+# (7) LOCAL EQU SYMBOL INFORMATION       #
+##########################################
+@ startup ( D:\r8cwork\SignalLamp\Debug\startup.r30 )
+@ lcd ( D:\r8cwork\SignalLamp\Debug\lcd.r30 )
+@ lcddisp ( D:\r8cwork\SignalLamp\Debug\lcddisp.r30 )
+@ led ( D:\r8cwork\SignalLamp\Debug\led.r30 )
+@ signallamp ( D:\r8cwork\SignalLamp\Debug\signallamp.r30 )
+@ timerx ( D:\r8cwork\SignalLamp\Debug\timerx.r30 )
+@ ad1utl ( D:\r8cwork\Library\Library.lib )
+@ intr ( D:\r8cwork\Library\Library.lib )
+@ intr_cmp0 ( D:\r8cwork\Library\Library.lib )
+@ intr_ty ( D:\r8cwork\Library\Library.lib )
+@ lcdutl ( D:\r8cwork\Library\Library.lib )
+@ ledutl ( D:\r8cwork\Library\Library.lib )
+@ swutl ( D:\r8cwork\Library\Library.lib )
+@ lcd1 ( D:\r8cwork\Library\Library.lib )
+@ _i4mulu ( d:\program files\renesas\hew\tools\renesas\nc30wa\v545r01\lib30\r8clib.lib )
+
+##########################################
+# (8) LOCAL EQU BIT-SYMBOL INFORMATION   #
+##########################################
+@ startup ( D:\r8cwork\SignalLamp\Debug\startup.r30 )
+@ lcd ( D:\r8cwork\SignalLamp\Debug\lcd.r30 )
+@ lcddisp ( D:\r8cwork\SignalLamp\Debug\lcddisp.r30 )
+@ led ( D:\r8cwork\SignalLamp\Debug\led.r30 )
+@ signallamp ( D:\r8cwork\SignalLamp\Debug\signallamp.r30 )
+@ timerx ( D:\r8cwork\SignalLamp\Debug\timerx.r30 )
+@ ad1utl ( D:\r8cwork\Library\Library.lib )
+@ intr ( D:\r8cwork\Library\Library.lib )
+@ intr_cmp0 ( D:\r8cwork\Library\Library.lib )
+@ intr_ty ( D:\r8cwork\Library\Library.lib )
+@ lcdutl ( D:\r8cwork\Library\Library.lib )
+@ ledutl ( D:\r8cwork\Library\Library.lib )
+@ swutl ( D:\r8cwork\Library\Library.lib )
+@ lcd1 ( D:\r8cwork\Library\Library.lib )
+@ _i4mulu ( d:\program files\renesas\hew\tools\renesas\nc30wa\v545r01\lib30\r8clib.lib )
+
+*** Mapping List ***
+
+SECTION                            START      END         SIZE   ALIGN
+
+data_NE
+                                  00000400  00000403         4   1
+data_NO
+                                  00000404  00000411         e   2
+bss_NE
+                                  00000500  00000513        14   1
+bss_NO
+                                  00000514  00000514         1   2
+stack
+                                  00000600  000006fe        ff   1
+startup
+                                  0000cc00  0000cc8f        90   1
+program
+                                  0000cc90  0000db7b       eec   1
+rom_NE
+                                  0000f000  0000f003         4   1
+rom_NO
+                                  0000f004  0000f11b       118   2
+data_NEI
+                                  0000fc00  0000fc03         4   1
+data_NOI
+                                  0000fc04  0000fc11         e   2
+interrupt_vector
+                                  0000ff34  0000ff4f        1c   1
+fix_interrupt_vector
+                                  0000ffdc  0000ffff        24   1
+
+*** Symbol List ***
+
+SECTION=
+FILE=                               START        END    SIZE
+  SYMBOL                            ADDR        SIZE    INFO      COUNTS  OPT
+
+SECTION=data_NO
+FILE=D:/r8cwork/SignalLamp/Src/led
+                                  00000404  0000040c         9
+  _g_ctTimeSet
+                                  00000404         3   data ,g         0
+  _g_ctTimeDown
+                                  00000407         3   data ,g         0
+  _g_ctTimeInitial
+                                  0000040a         3   data ,g         0
+
+FILE=D:/r8cwork/SignalLamp/Src/timerx
+                                  0000040d  0000040f         3
+  _g_bLEDIsRun
+                                  0000040d         1   data ,g         0
+
+SECTION=startup
+FILE=startup
+                                  0000cc00  0000cc00         0
+  start
+                                  0000cc00         0   none ,g         0
+
+FILE=startup
+                                  0000cc00  0000cc8f        90
+  $exit
+                                  0000cc48         0   none ,g         0
+  _exit
+                                  0000cc48         0   none ,g         0
+
+SECTION=program
+FILE=D:/r8cwork/SignalLamp/Src/lcd
+                                  0000cc90  0000ce1f       190
+  _s_SingalSwitch
+                                  0000cc90        4f   func ,g         0
+  $s_TimeEdit
+                                  0000cce0        a9   func ,g         0
+  $s_TimeJudge
+                                  0000cd88        98   func ,g         0
+
+FILE=D:/r8cwork/SignalLamp/Src/lcddisp
+                                  0000ce20  0000d046       227
+  _g_DisplayWelcome
+                                  0000ce20        25   func ,g         0
+  _g_DisplayMainMenu
+                                  0000ce46        4e   func ,g         0
+  _g_DisplayMainMenuError
+                                  0000ce94        2a   func ,g         0
+  _g_DisplaySingalSwitch
+                                  0000cebe        4e   func ,g         0
+  _g_DisplaySingalEnsure
+                                  0000cf0c        3c   func ,g         0
+  _g_DisplayTimeEdit
+                                  0000cf48        3c   func ,g         0
+  _g_DisplayTimeEditError
+                                  0000cf84        2a   func ,g         0
+  $g_LCDTimeInput
+                                  0000cfae        2c   func ,g         0
+  _g_DisplayReset
+                                  0000cfda        2a   func ,g         0
+  _g_DisplayReseting
+                                  0000d004        2a   func ,g         0
+
+FILE=D:/r8cwork/SignalLamp/Src/led
+                                  0000d048  0000d0b8        71
+  _g_SingalDisplay
+                                  0000d048        55   func ,g         0
+
+FILE=D:/r8cwork/SignalLamp/Src/signallamp
+                                  0000d0ba  0000d172        b9
+  _main
+                                  0000d0ba        b9   func ,g         0
+
+FILE=D:/r8cwork/SignalLamp/Src/timerx
+                                  0000d174  0000d1bd        4a
+  _IntrTimerX
+                                  0000d174        24   func ,g         0
+  _g_TimerXInit
+                                  0000d198        1c   func ,g         0
+  _g_Time2sDelay
+                                  0000d1b4         a   func ,g         0
+
+FILE=D:/maolj/library/library/src/ad1utl
+                                  0000d1be  0000d1e1        24
+  _AD1__initialize
+                                  0000d1be        15   func ,g         0
+
+FILE=intr
+                                  0000d1e2  0000d1e4         3
+  _ei
+                                  0000d1e2         0   none ,g         0
+
+FILE=intr
+                                  0000d1e5  0000d1e7         3
+  _di
+                                  0000d1e5         0   none ,g         0
+
+FILE=intr_cmp0
+                                  0000d1e8  0000d1f2         b
+  Cmp0
+                                  0000d1e8         0   none ,g         0
+
+FILE=intr_ty
+                                  0000d1f3  0000d1fd         b
+  TimerY
+                                  0000d1f3         0   none ,g         0
+
+FILE=D:/maolj/library/library/src/lcdutl
+                                  0000d1fe  0000d521       324
+  _LCD__initialize
+                                  0000d1fe        92   func ,g         0
+  _LCD__clear
+                                  0000d290        1e   func ,g         0
+  $LCD__setcursol
+                                  0000d2ae        3a   func ,g         0
+  $LCD__putchar
+                                  0000d2e8        4c   func ,g         0
+  $LCD__puts
+                                  0000d334        2a   func ,g         0
+  $LCD__putdec
+                                  0000d35e        70   func ,g         0
+  $LCD__puthex
+                                  0000d3ce        81   func ,g         0
+  _INT_cmp0
+                                  0000d478         e   func ,g         0
+
+FILE=D:/maolj/library/library/src/ledutl
+                                  0000d522  0000d77b       25a
+  $LED__ty_int
+                                  0000d522        1a   func ,g         0
+  _LED__initialize
+                                  0000d53c        26   func ,g         0
+  $LED__putchar
+                                  0000d562        b0   func ,g         0
+  $LED__puthex
+                                  0000d612        4e   func ,g         0
+  _LED__clear
+                                  0000d660        22   func ,g         0
+  $LED__putdec
+                                  0000d682        4e   func ,g         0
+  $LED__put3dec
+                                  0000d6d0        56   func ,g         0
+  $LED__put4dec
+                                  0000d726        56   func ,g         0
+
+FILE=D:/maolj/library/library/src/swutl
+                                  0000d77c  0000dae5       36a
+  _SW__initialize1
+                                  0000d77c        45   func ,g         0
+  _SW__initialize2
+                                  0000d7c2        12   func ,g         0
+  _SW__getchar
+                                  0000d7d4        4a   func ,g         0
+  $SW__gets
+                                  0000d81e        6b   func ,g         0
+  _SW__getnum
+                                  0000d888        48   func ,g         0
+  _SW__getdec
+                                  0000d8d0        ab   func ,g         0
+
+FILE=lcd1
+                                  0000dae6  0000daed         8
+  __lcd1__initial
+                                  0000dae6         0   none ,g         0
+
+FILE=lcd1
+                                  0000daee  0000daf9         c
+  $_lcd1__wait
+                                  0000daee         0   none ,g         0
+
+FILE=lcd1
+                                  0000dafa  0000db14        1b
+  $_lcd1__wr_nibble_creg
+                                  0000dafa         0   none ,g         0
+
+FILE=lcd1
+                                  0000db15  0000db2f        1b
+  $_lcd1__wr_nibble_dreg
+                                  0000db15         0   none ,g         0
+
+FILE=lcd1
+                                  0000db30  0000db46        17
+  __lcd1__rd_nibble_creg
+                                  0000db30         0   none ,g         0
+
+FILE=lcd1
+                                  0000db47  0000db5e        18
+  __lcd1__rd_nibble_dreg
+                                  0000db47         0   none ,g         0
+
+FILE=_i4mulu
+                                  0000db60  0000db7b        1c
+  __i4mulU
+                                  0000db60        1c   func ,g         0
+

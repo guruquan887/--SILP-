@@ -1,0 +1,172 @@
+; ----------------------------------------------------------------------------
+;   COPYRIGHT(C) 2011 RENESAS TECHNOLOGY CORPORATION
+;   AND RENESAS SOLUTIONS CORPORATION ALL RIGHTS RESERVED
+;
+; [FILE]
+;     startup.a30
+;
+; [DESCRIPTION]
+;     start up program (for OAKS8-LCDBoard support library)
+;
+; [NOTE]
+;     1. for eduction (NO TRANSFERRING)
+;     2. for OAKS8-LCD Board
+;     3. for OAKS8-R5F21114FP(R8C/11 group,20MHz)
+;
+; [VERSION]
+;     v1.00  2011/05/20 RENESAS Semiconductor Training Center  New
+; ---------------------------------------------------------------------------*/
+
+;==============================================================================
+; section assign
+;==============================================================================
+        .include        sect.inc                 ; section definition file
+;==============================================================================
+; SFR section definition for M16C/60 series 
+;==============================================================================
+        .include        target.inc               ; for R8C/Tiny series
+                                                 ; SFR section definition file
+;==============================================================================
+; define macro
+;==============================================================================
+;-------------------------------------------------------------------------------
+; define macro to clear section for static variable without initial value with 0
+;-------------------------------------------------------------------------------
+N_BZERO .macro  TOP_ ,SECT_
+        mov.b   #00H, R0L
+        mov.w   #(TOP_ & 0FFFFH), A1
+        mov.w   #sizeof SECT_ , R3
+        sstr.b  
+        .endm
+;-------------------------------------------------------------------------------
+; define macro to transfer initial value to section for static variable with initial value
+;-------------------------------------------------------------------------------
+N_BCOPY .macro  FROM_,TO_,SECT_
+        mov.w   #(FROM_ & 0FFFFH),A0
+        mov.b   #(FROM_ >>16),R1H
+        mov.w   #TO_ ,A1
+        mov.w   #sizeof SECT_ , R3
+        smovf.b
+        .endm
+;==============================================================================
+; start up program section
+;==============================================================================
+        .section        startup                  ; start up program section
+;
+        .glb            start
+        .glb            _main
+        .glb            _exit
+        .glb            $exit
+start:                                           ; start address of start up program
+        ldc             #06FFH,ISP               ; initialize interrupt stack pointer(ISP)
+; ----- initialize processor mode register -----
+        bset            PRC1                     ; enable to write
+                                                 ; processor mode register 0,1
+        mov.b           #00000000B,PM0           ; single chip mode
+        mov.b           #00000000B,PM1           ; no expand, no wait
+        bclr            PRC1                     ; disable to write
+                                                 ; processor mode register 0,1
+; ----- initialize system clock control register -----
+        bset            PRC0                     ; enable to write
+                                                 ; system clock control register 0, 1
+        mov.b           #00001000B,CM0           ; oscillate main clock
+        mov.b           #00001000B,CM1           ; no main clock division
+        mov.b           #00H,OCD                 ; oscillation stop detection register:select main clock
+        bclr            PRC0                     ; disable to write
+                                                 ; system clock control register 0, 1
+;===============================================================================
+
+        ldc             #0H,FLG                  ; initialize FLG register
+        ldc             #0H,FB                   ; initialize FB register
+        ldc             #data_NE_top,SB          ; initialize SB register
+                                                 ; (for compiler)
+        ldintb          #0FEDCH                  ; initialize INTB register
+;
+        jsr             RAMCLR                   ; clear data section with 0 
+        jsr             DATINI                   ; transfer initial value to data section
+;
+        jsr             IOINI                    ; initialize I/O
+;
+        fset            I                        ; interrupt permission(for OAKS8-LCDBoard peripheral library)
+;
+        jsr             _main                    ; call main() function
+;
+_exit:                                           ; end of program
+                                                 ; (infinite loop status)
+$exit:
+        jmp             _exit                    ; call exit() function
+
+
+;""SUBR COMMENT""**************************************************************
+; ID                : ---
+; subroutine name   : RAMCLR
+; function          : clear data section with 0 
+;                   : (clear section for static varialbe without initial value with 0)
+; input             : none
+; output            : none
+; subroutin used    : none
+; stack             : 0 byte 
+; notice            : use macor N_BZERO
+; History           : ---
+;""SUBR COMMENT END""**********************************************************
+RAMCLR:
+        N_BZERO bss_NE_top,bss_NE
+        N_BZERO bss_NO_top,bss_NO
+RAMCLR_END:
+        rts
+
+
+;""SUBR COMMENT""**************************************************************
+; ID                : ---
+; subroutine name   : DATINI
+; function          : transfer initial value to data section
+;                   : (transfer initial value to section for static variable with initial value)
+; input             : none
+; output            : none
+; subroutine used   : none
+; stack             : 0 byte
+; notice            : use macro N_BCOPY
+; History           : ---
+;""SUBR COMMENT END""**********************************************************
+DATINI: 
+        N_BCOPY data_NEI_top,data_NE_top,data_NE
+        N_BCOPY data_NOI_top,data_NO_top,data_NO
+DATINI_END:
+        rts
+
+
+;""SUBR COMMENT""**************************************************************
+; ID                 : ---
+; subroutine name    : IOINI
+; function           : initialize I/O
+; input              : none
+; output             : none
+; subroutine used    : none
+; stack              : 0 byte
+; notice             : none
+; History            : ---
+;""SUBR COMMENT END""**********************************************************
+                .glb    _LCD__initialize,_LCD__clear
+                .glb    _SW__initialize1,_BUZ__initialize
+                .glb    _AD1__initialize
+
+IOINI:  
+                jsr     _LCD__initialize         ; initialize LCD
+                jsr     _LCD__clear              ; clear LCD display
+                jsr     _SW__initialize1         ; initialize key matrix, SW5
+                jsr     _AD1__initialize         ; initialize A-D conversion
+IOINI_END:
+                rts
+
+
+;==============================================================================
+; dummy interrupt program
+;------------------------------------------------------------------------------
+DUMMY_INT:
+        reit                                     ;command for returning from interrupt
+
+
+       .end
+;******************************************************************************
+;               end of file
+;******************************************************************************

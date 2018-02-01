@@ -1,0 +1,26 @@
+col[count]=0
+colt[count]=0
+---------------SLD=3
+---------------u8color=0
+---------------u8colortime=0
+col[count]=1
+colt[count]=1
+---------------SLD=3
+---------------u8color=1
+---------------u8colortime=1
+col[count]=2
+colt[count]=199
+---------------SLD=3
+---------------u8color=2
+---------------u8colortime=199
+col[count]=3
+colt[count]=244
+---------------SLD=3
+---------------u8color=3
+---------------u8colortime=244
+col[count]=255
+colt[count]=255
+---------------SLD=3
+---------------u8color=255
+---------------u8colortime=255
+Press any key to continue

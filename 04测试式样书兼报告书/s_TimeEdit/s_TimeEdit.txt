@@ -1,0 +1,15 @@
+----------LCD__CLEAR()-----------
+g_LCD_CLEAR = 1
+----------g_DisplayTimeEdit()-----------
+g_DTE = 1
+----------g_LCDTimeInput()-----------
+u8swcounter <= 3!
+g_LCDTI = 1
+u8ST = 10
+--------------s16Time--------------
+s16Time = 0
+--------------g_LCDTimeInput(s16Time)------------
+g_LCDTI = 1
+s16Time = 0
+***************************************
+Input a u8num:

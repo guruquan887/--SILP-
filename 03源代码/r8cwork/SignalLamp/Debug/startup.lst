@@ -1,0 +1,444 @@
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Tue May 08 11:23:38 2012  PAGE 001
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4....*....5....*....6....*....7....*....8....*....9....*....0
+
+     1                                  ; ----------------------------------------------------------------------------
+     2                                  ;   COPYRIGHT(C) 2011 RENESAS TECHNOLOGY CORPORATION
+     3                                  ;   AND RENESAS SOLUTIONS CORPORATION ALL RIGHTS RESERVED
+     4                                  ;
+     5                                  ; [FILE]
+     6                                  ;     startup.a30
+     7                                  ;
+     8                                  ; [DESCRIPTION]
+     9                                  ;     start up program (for OAKS8-LCDBoard support library)
+    10                                  ;
+    11                                  ; [NOTE]
+    12                                  ;     1. for eduction (NO TRANSFERRING)
+    13                                  ;     2. for OAKS8-LCD Board
+    14                                  ;     3. for OAKS8-R5F21114FP(R8C/11 group,20MHz)
+    15                                  ;
+    16                                  ; [VERSION]
+    17                                  ;     v1.00  2011/05/20 RENESAS Semiconductor Training Center  New
+    18                                  ; ---------------------------------------------------------------------------*/
+    19                                  
+    20                                  ;==============================================================================
+    21                                  ; section assign
+    22                                  ;==============================================================================
+    23                                          .include        sect.inc                 ; section definition file
+    24                           1      ; ----------------------------------------------------------------------------
+    25                           1      ;   COPYRIGHT(C) 2011 RENESAS TECHNOLOGY CORPORATION
+    26                           1      ;   AND RENESAS SOLUTIONS CORPORATION ALL RIGHTS RESERVED
+    27                           1      ;
+    28                           1      ; [FILE]
+    29                           1      ;     sect.inc
+    30                           1      ;
+    31                           1      ; [DESCRIPTION]
+    32                           1      ;     section definition (for OAKS8-LCDBoard support library)
+    33                           1      ;
+    34                           1      ; [NOTE]
+    35                           1      ;     1. for eduction (NO TRANSFERRING)
+    36                           1      ;     2. for OAKS8-LCD Board
+    37                           1      ;     3. for OAKS8-R5F21114FP(R8C/11 group,20MHz)
+    38                           1      ;
+    39                           1      ; [VERSION]
+    40                           1      ;     v1.00  2011/05/20 RENESAS Semiconductor Training Center  New
+    41                           1      ; ---------------------------------------------------------------------------*/
+    42                           1      
+    43                           1      ;===============================================================================
+    44                           1      ; section arrenge
+    45                           1      ;===============================================================================
+    46                           1      ;-------------------------------------------------------------------------------
+    47                           1      ; variable data section (RAM)
+    48                           1      ;-------------------------------------------------------------------------------
+    49                           1      ; static variable with initial value 
+    50                           1              .section        data_NE,DATA            ; static variable with even size
+    51  00400                    1              .org            0400H                   ; start address 00400H
+    52  00400                    1      data_NE_top:
+    53                           1              .section        data_NO,DATA,ALIGN      ; static variable with odd size
+    54  00000                    1      data_NO_top:
+    55                           1      
+    56                           1      ;-------------------------------------------------------------------------------
+    57                           1      ; static variable without initial value
+    58                           1              .section        bss_NE,DATA             ; static variable with even size
+    59  00500                    1              .org            0500H                   ; start address 00500H
+    60  00500                    1      bss_NE_top:
+    61                           1              .section        bss_NO,DATA,ALIGN       ; static variable with odd size
+    62  00000                    1      bss_NO_top:
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Tue May 08 11:23:38 2012  PAGE 002
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4....*....5....*....6....*....7....*....8....*....9....*....0
+
+    63                           1      
+    64                           1      ;-------------------------------------------------------------------------------
+    65                           1      
+    66                           1      ;-------------------------------------------------------------------------------
+    67                           1      ; stack section
+    68                           1      ;-------------------------------------------------------------------------------
+    69                           1              .section        stack,DATA              ; stack section
+    70  00600                    1              .org            0600H                   ; start address 00600H
+    71  000000FFh                1      STACKSIZE               .equ    255             ; set stack size(256 bytes)
+    72  00600                    1      stack_top:
+    73  00600(0000FFH)           1              .blkb           STACKSIZE               ; confirm stack section
+    74                           1                                                      ; with stack size
+    75  006FF                    1      STACK_INI:                                      ; start up program section
+    76                           1                                                      ; start address CC00H
+    77                           1      ;-------------------------------------------------------------------------------
+    78                           1      ; code section
+    79                           1      ;-------------------------------------------------------------------------------
+    80                           1              .section        startup,CODE            ; start up program section
+    81  0CC00                    1              .org            0CC00H                  ; start address CC00H
+    82                           1      ;-------------------------------------------------------------------------------
+    83                           1              .section        program,CODE            ; program section
+    84                           1      ;-------------------------------------------------------------------------------
+    85                           1      ; fixed data section(ROM)
+    86                           1      ;-------------------------------------------------------------------------------
+    87                           1      ; section to save constant, string
+    88                           1              .section        rom_NE,ROMDATA          ; constant with even size
+    89  0F000                    1              .org            0F000H                  ; start address F000H
+    90  0F000                    1      rom_NE_top:
+    91                           1              .section        rom_NO,ROMDATA,ALIGN    ; constant with odd size
+    92  00000                    1      rom_NO_top:
+    93                           1      ;-------------------------------------------------------------------------------
+    94                           1      ; section to save initial value of static variable with initial value
+    95                           1              .section        data_NEI,ROMDATA        ; initial value with even size
+    96  0FC00                    1              .org            0FC00H
+    97  0FC00                    1      data_NEI_top:
+    98                           1              .section        data_NOI,ROMDATA,ALIGN  ; initial value with odd size
+    99  00000                    1      data_NOI_top:
+   100                           1      
+   101                           1      ;-------------------------------------------------------------------------------
+   102                           1      ; variable interrupt vector section
+   103                           1      ;-------------------------------------------------------------------------------
+   104                           1              .section        interrupt_vector,CODE   ; interrupt_vector section
+   105                           1                      
+   106  0FF34                    1              .org            (0FEDCH + 22*4)         ; start address 0FEDCH
+   107                           1              .glb            _IntrTimerX            ; control key matrix
+   108  0FF34  00000000r         1              .lword          _IntrTimerX             ; timer X (for OAKS8-LCDBoard)
+   109                           1                      
+   110  0FF38                    1              .org            (0FEDCH + 23*4)         ; start address 0FEDCH
+   111                           1              .glb            TimerY                  ; control key matrix
+   112  0FF38  00000000r         1              .lword          TimerY                  ; timer Y (for OAKS8-LCDBoard)
+   113                           1      
+   114  0FF4C                    1              .org            (0FEDCH + 28*4)         ; 
+   115                           1              .glb            Cmp0                    ; control LCD
+   116  0FF4C  00000000r         1              .lword          Cmp0                    ; timer C (for OAKS8-LCDBoard)
+   117                           1      ;
+   118                           1      ;-------------------------------------------------------------------------------
+   119                           1      ; fixed interrupt vector section
+   120                           1      ; *set ID1 to ID7 code at 00HAset FFH at FFFC(for KD30 to exchange RS232C to FoUSB)
+   121                           1      ; *when using KD30, fixed vector interrupt can not run in user program
+   122                           1      ;-------------------------------------------------------------------------------
+   123                           1              .section        fix_interrupt_vector,CODE
+   124                           1                                                      ; fix_interrupt_vector section
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Tue May 08 11:23:38 2012  PAGE 003
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4....*....5....*....6....*....7....*....8....*....9....*....0
+
+   125  0FFDC                    1              .org            0FFDCH
+   126  0FFDC  00000000r         1              .lword          DUMMY_INT               ; FFDC to F undefined command
+   127  0FFE0  00000000r         1              .lword          DUMMY_INT               ; FFE0 to 3 overflow
+   128  0FFE4  00000000r         1              .lword          DUMMY_INT               ; FFE4 to 7 BRK command
+   129  0FFE8  00000000r         1              .lword          DUMMY_INT               ; FFE8 to B same address
+   130  0FFEC  00000000r         1              .lword          DUMMY_INT               ; FFEC to F single step
+   131  0FFF0  00000000r         1              .lword          DUMMY_INT               ; FFF0 to 3 monitor timer
+   132  0FFF4  00000000r         1              .lword          DUMMY_INT               ; FFF4 to 7 DBC
+   133  0FFF8  00000000r         1              .lword          DUMMY_INT               ; FFF8 to B NMI
+   134                           1      ;
+   135  0FFFC                    1              .org            0FFFCH
+   136  0FFFC                    1      reset:
+   137  0FFFC  00000000r         1              .lword          start + 0FF000000H      ; FFFC to F set reset vector
+   138                           1      
+   139                           1      ;******************************************************************************
+   140                           1      ;       end of file
+   141                           1      ;******************************************************************************
+   142                                  ;==============================================================================
+   143                                  ; SFR section definition for M16C/60 series 
+   144                                  ;==============================================================================
+   145                                          .include        target.inc               ; for R8C/Tiny series
+   146                           1      ; ----------------------------------------------------------------------------
+   147                           1      ;   COPYRIGHT(C) 2011 RENESAS TECHNOLOGY CORPORATION
+   148                           1      ;   AND RENESAS SOLUTIONS CORPORATION ALL RIGHTS RESERVED
+   149                           1      ;
+   150                           1      ; [FILE]
+   151                           1      ;     target.inc
+   152                           1      ;
+   153                           1      ; [DESCRIPTION]
+   154                           1      ;     SFR definition file(assembly language) for R8C/Tiny series
+   155                           1      ;
+   156                           1      ; [NOTE]
+   157                           1      ;     1. for eduction (NO TRANSFERRING)
+   158                           1      ;     2. for OAKS8-LCD Board
+   159                           1      ;     3. for OAKS8-R5F21114FP(R8C/11 group,20MHz)
+   160                           1      ;
+   161                           1      ; [VERSION]
+   162                           1      ;     v1.00  2011/05/20 RENESAS Semiconductor Training Center  New
+   163                           1      ; ---------------------------------------------------------------------------*/
+   164                           1      
+   165                           1      ;******************************************************************************
+   166                           1      ;               define SFR symbol
+   167                           1      ;******************************************************************************
+   168                           1      ;------------------------------------------------------------------------------
+   169                           1      ;  processor mode register 0
+   170                           1      ;------------------------------------------------------------------------------
+   171  00000004h                1      PM0             .equ            0004h
+   172                           1      ;------------------------------------------------------------------------------
+   173                           1      ;  processor mode register 1
+   174                           1      ;------------------------------------------------------------------------------
+   175  00000005h                1      PM1             .equ            0005h
+   176                           1      ;------------------------------------------------------------------------------
+   177                           1      ;  system clock control register 0
+   178                           1      ;------------------------------------------------------------------------------
+   179  00000006h                1      CM0             .equ            0006h
+   180                           1      ;------------------------------------------------------------------------------
+   181                           1      ;  system clock control register 1
+   182                           1      ;------------------------------------------------------------------------------
+   183  00000007h                1      CM1             .equ            0007h
+   184                           1      ;------------------------------------------------------------------------------
+   185                           1      ;  protect register
+   186                           1      ;------------------------------------------------------------------------------
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Tue May 08 11:23:38 2012  PAGE 004
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4....*....5....*....6....*....7....*....8....*....9....*....0
+
+   187  0000000Ah                1      PRCR            .equ            000ah
+   188                           1      ;
+   189  0,0000000Ah              1      PRC0            .btequ        0,PRCR        ; bit for permitting writing
+   190                           1                                                  ; system clock control register 0, 1 
+   191                           1                                                  ; oscillation stop detection register 
+   192                           1                                                  ; high speed ring control register 0, 1
+   193  1,0000000Ah              1      PRC1            .btequ        1,PRCR        ; bit for permitting writing
+   194                           1                                                  ; processor mode register 0, 1
+   195  2,0000000Ah              1      PRC2            .btequ        2,PRCR        ; bit for permitting writing 
+   196                           1                                                  ; port P0 direction register 
+   197                           1      ;------------------------------------------------------------------------------
+   198                           1      ;   oscillation stop detection register
+   199                           1      ;------------------------------------------------------------------------------
+   200  0000000Ch                1      OCD             .equ            000ch
+   201                           1      ;------------------------------------------------------------------------------
+   202                           1      ;  port P1 register 
+   203                           1      ;------------------------------------------------------------------------------
+   204  000000E1h                1      P1              .equ            000E1H
+   205                           1      
+   206  6,000000E1h              1      P1_6            .btequ        6,000E1H      ; bit 6 of port P1
+   207  7,000000E1h              1      P1_7            .btequ        7,000E1H      ; bit 7 of port P1
+   208                           1      ;------------------------------------------------------------------------------
+   209                           1      ;  port P1 direction register
+   210                           1      ;------------------------------------------------------------------------------
+   211  000000E3h                1      PD1             .equ            000E3H      ; port P1 direction register
+   212                           1      
+   213                           1      ;------------------------------------------------------------------------------
+   214                           1      ;  port P4 register
+   215                           1      ;------------------------------------------------------------------------------
+   216  000000E8h                1      P4              .equ            000E8H
+   217  5,000000E8h              1      P4_5            .btequ        5,000E8H      ; bit 5 of port P4(SW20 return input)
+   218                           1      
+   219                           1      ;------------------------------------------------------------------------------
+   220                           1      ;  INT0 interrupt control register
+   221                           1      ;------------------------------------------------------------------------------
+   222  0000005Dh                1      INT0IC          .equ            0005DH  
+   223  3,0000005Dh              1      IR_INT0IC       .btequ        3,0005DH      ; INT0 interrupt request bit 
+   224                           1      
+   225                           1      ;******************************************************************************
+   226                           1      ;       end of file
+   227                           1      ;******************************************************************************
+   228                                                                                   ; SFR section definition file
+   229                                  ;==============================================================================
+   230                                  ; define macro
+   231                                  ;==============================================================================
+   232                                  ;-------------------------------------------------------------------------------
+   233                                  ; define macro to clear section for static variable without initial value with 0
+   234                                  ;-------------------------------------------------------------------------------
+   235                             D    N_BZERO .macro  TOP_ ,SECT_
+   236                             D            mov.b   #00H, R0L
+   237                             D            mov.w   #(TOP_ & 0FFFFH), A1
+   238                             D            mov.w   #sizeof SECT_ , R3
+   239                             D            sstr.b  
+   240                                          .endm
+   241                                  ;-------------------------------------------------------------------------------
+   242                                  ; define macro to transfer initial value to section for static variable with initial value
+   243                                  ;-------------------------------------------------------------------------------
+   244                             D    N_BCOPY .macro  FROM_,TO_,SECT_
+   245                             D            mov.w   #(FROM_ & 0FFFFH),A0
+   246                             D            mov.b   #(FROM_ >>16),R1H
+   247                             D            mov.w   #TO_ ,A1
+   248                             D            mov.w   #sizeof SECT_ , R3
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Tue May 08 11:23:38 2012  PAGE 005
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4....*....5....*....6....*....7....*....8....*....9....*....0
+
+   249                             D            smovf.b
+   250                                          .endm
+   251                                  ;==============================================================================
+   252                                  ; start up program section
+   253                                  ;==============================================================================
+   254                                          .section        startup                  ; start up program section
+   255                                  ;
+   256                                          .glb            start
+   257                                          .glb            _main
+   258                                          .glb            _exit
+   259                                          .glb            $exit
+   260  00000                           start:                                           ; start address of start up program
+   261  00000  EB40FF06                         ldc             #06FFH,ISP               ; initialize interrupt stack pointer(ISP)
+   262                                  ; ----- initialize processor mode register -----
+   263  00004  7E9F5100                         bset            PRC1                     ; enable to write
+   264                                                                                   ; processor mode register 0,1
+   265  00008  B70400                Z          mov.b           #00000000B,PM0           ; single chip mode
+   266  0000B  B70500                Z          mov.b           #00000000B,PM1           ; no expand, no wait
+   267  0000E  7E8F5100                         bclr            PRC1                     ; disable to write
+   268                                                                                   ; processor mode register 0,1
+   269                                  ; ----- initialize system clock control register -----
+   270  00012  7E9F5000                         bset            PRC0                     ; enable to write
+   271                                                                                   ; system clock control register 0, 1
+   272  00016  C7080600              S          mov.b           #00001000B,CM0           ; oscillate main clock
+   273  0001A  C7080700              S          mov.b           #00001000B,CM1           ; no main clock division
+   274  0001E  B70C00                Z          mov.b           #00H,OCD                 ; oscillation stop detection register:select main clock
+   275  00021  7E8F5000                         bclr            PRC0                     ; disable to write
+   276                                                                                   ; system clock control register 0, 1
+   277                                  ;===============================================================================
+   278                                  
+   279  00025  EB300000                         ldc             #0H,FLG                  ; initialize FLG register
+   280  00029  EB700000                         ldc             #0H,FB                   ; initialize FB register
+   281  0002D  EB600004                         ldc             #data_NE_top,SB          ; initialize SB register
+   282                                                                                   ; (for compiler)
+   283  00031  EB200000                         ldintb          #0FEDCH                  ; initialize INTB register
+               EB10DCFE 
+   284                                  ;
+   285  00039  F51000                W          jsr             RAMCLR                   ; clear data section with 0 
+   286  0003C  F52200                W          jsr             DATINI                   ; transfer initial value to data section
+   287                                  ;
+   288  0003F  F53E00                W          jsr             IOINI                    ; initialize I/O
+   289                                  ;
+   290  00042  EB64                             fset            I                        ; interrupt permission(for OAKS8-LCDBoard peripheral library)
+   291                                  ;
+   292  00044  FD000000r             A          jsr             _main                    ; call main() function
+   293                                  ;
+   294  00048                           _exit:                                           ; end of program
+   295                                                                                   ; (infinite loop status)
+   296  00048                           $exit:
+   297  00048  FEFF                  B          jmp             _exit                    ; call exit() function
+   298                                  
+   299                                  
+   300                                  ;""SUBR COMMENT""**************************************************************
+   301                                  ; ID                : ---
+   302                                  ; subroutine name   : RAMCLR
+   303                                  ; function          : clear data section with 0 
+   304                                  ;                   : (clear section for static varialbe without initial value with 0)
+   305                                  ; input             : none
+   306                                  ; output            : none
+   307                                  ; subroutin used    : none
+   308                                  ; stack             : 0 byte 
+   309                                  ; notice            : use macor N_BZERO
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Tue May 08 11:23:38 2012  PAGE 006
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4....*....5....*....6....*....7....*....8....*....9....*....0
+
+   310                                  ; History           : ---
+   311                                  ;""SUBR COMMENT END""**********************************************************
+   312  0004A                           RAMCLR:
+   313                                          N_BZERO bss_NE_top,bss_NE
+   314  0004A  B4                  M Z          mov.b   #00H, R0L
+   315  0004B  AA0005              M S          mov.w   #(bss_NE_top & 0FFFFH), A1
+   316  0004E  75C30000r           M            mov.w   #sizeof bss_NE , R3
+   317  00052  7CEA                M            sstr.b  
+   318                             M            .endm
+   319                                          N_BZERO bss_NO_top,bss_NO
+   320  00054  B4                  M Z          mov.b   #00H, R0L
+   321  00055  AA0000r             M S          mov.w   #(bss_NO_top & 0FFFFH), A1
+   322  00058  75C30000r           M            mov.w   #sizeof bss_NO , R3
+   323  0005C  7CEA                M            sstr.b  
+   324                             M            .endm
+   325  0005E                           RAMCLR_END:
+   326  0005E  F3                               rts
+   327                                  
+   328                                  
+   329                                  ;""SUBR COMMENT""**************************************************************
+   330                                  ; ID                : ---
+   331                                  ; subroutine name   : DATINI
+   332                                  ; function          : transfer initial value to data section
+   333                                  ;                   : (transfer initial value to section for static variable with initial value)
+   334                                  ; input             : none
+   335                                  ; output            : none
+   336                                  ; subroutine used   : none
+   337                                  ; stack             : 0 byte
+   338                                  ; notice            : use macro N_BCOPY
+   339                                  ; History           : ---
+   340                                  ;""SUBR COMMENT END""**********************************************************
+   341  0005F                           DATINI: 
+   342                                          N_BCOPY data_NEI_top,data_NE_top,data_NE
+   343  0005F  A200FC              M S          mov.w   #(data_NEI_top & 0FFFFH),A0
+   344  00062  74C300              M            mov.b   #(data_NEI_top >>16),R1H
+   345  00065  AA0004              M S          mov.w   #data_NE_top ,A1
+   346  00068  75C30000r           M            mov.w   #sizeof data_NE , R3
+   347  0006C  7CE8                M            smovf.b
+   348                             M            .endm
+   349                                          N_BCOPY data_NOI_top,data_NO_top,data_NO
+   350  0006E  A20000r             M S          mov.w   #(data_NOI_top & 0FFFFH),A0
+   351  00071  74C300r             M            mov.b   #(data_NOI_top >>16),R1H
+   352  00074  AA0000r             M S          mov.w   #data_NO_top ,A1
+   353  00077  75C30000r           M            mov.w   #sizeof data_NO , R3
+   354  0007B  7CE8                M            smovf.b
+   355                             M            .endm
+   356  0007D                           DATINI_END:
+   357  0007D  F3                               rts
+   358                                  
+   359                                  
+   360                                  ;""SUBR COMMENT""**************************************************************
+   361                                  ; ID                 : ---
+   362                                  ; subroutine name    : IOINI
+   363                                  ; function           : initialize I/O
+   364                                  ; input              : none
+   365                                  ; output             : none
+   366                                  ; subroutine used    : none
+   367                                  ; stack              : 0 byte
+   368                                  ; notice             : none
+   369                                  ; History            : ---
+   370                                  ;""SUBR COMMENT END""**********************************************************
+   371                                                  .glb    _LCD__initialize,_LCD__clear
+* R8C/Tiny,M16C/60 SERIES ASSEMBLER *   SOURCE LIST       Tue May 08 11:23:38 2012  PAGE 007
+
+  SEQ.  LOC.   OBJ.              0XMSDA ....*....SOURCE STATEMENT....7....*....8....*....9....*....0....*....1....*....2....*....3....*....4....*....5....*....6....*....7....*....8....*....9....*....0
+
+   372                                                  .glb    _SW__initialize1,_BUZ__initialize
+   373                                                  .glb    _AD1__initialize
+   374                                  
+   375  0007E                           IOINI:  
+   376  0007E  FD000000r             A                  jsr     _LCD__initialize         ; initialize LCD
+   377  00082  FD000000r             A                  jsr     _LCD__clear              ; clear LCD display
+   378  00086  FD000000r             A                  jsr     _SW__initialize1         ; initialize key matrix, SW5
+   379  0008A  FD000000r             A                  jsr     _AD1__initialize         ; initialize A-D conversion
+   380  0008E                           IOINI_END:
+   381  0008E  F3                                       rts
+   382                                  
+   383                                  
+   384                                  ;==============================================================================
+   385                                  ; dummy interrupt program
+   386                                  ;------------------------------------------------------------------------------
+   387  0008F                           DUMMY_INT:
+   388  0008F  FB                               reit                                     ;command for returning from interrupt
+   389                                  
+   390                                  
+   391                                         .end
+
+Information List
+
+TOTAL ERROR(S)    00000
+TOTAL WARNING(S)  00000
+TOTAL LINE(S)     00391   LINES
+
+Section List
+
+Attr        Size          Name
+DATA     0000000(00000H)  data_NE
+DATA     0000000(00000H)  data_NO
+DATA     0000000(00000H)  bss_NE
+DATA     0000000(00000H)  bss_NO
+DATA     0000255(000FFH)  stack
+CODE     0000000(00000H)  startup
+CODE     0000000(00000H)  program
+ROMDATA  0000000(00000H)  rom_NE
+ROMDATA  0000000(00000H)  rom_NO
+ROMDATA  0000000(00000H)  data_NEI
+ROMDATA  0000000(00000H)  data_NOI
+CODE     0000028(0001CH)  interrupt_vector
+CODE     0000036(00024H)  fix_interrupt_vector
+CODE     0000144(00090H)  startup

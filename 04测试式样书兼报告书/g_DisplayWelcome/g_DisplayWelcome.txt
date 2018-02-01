@@ -1,0 +1,62 @@
+----テストケース----
+
+-------------------------------------
+g_u8LCDclear = 0
+----LCDクリア----
+g_u8LCDclear = 1
+-------------------------------------
+g_u8setcursol1 = 0
+g_u8setcursol2 = 0
+----表示位置を指定する----
+g_u8setcursol1 = 0
+g_u8setcursol2 = 0
+-------------------------------------
+g_u8setcursol1 = 1
+g_u8setcursol2 = 1
+----表示位置を指定する----
+g_u8setcursol1 = 0
+g_u8setcursol2 = 0
+-------------------------------------
+g_u8setcursol1 = 2
+g_u8setcursol2 = 2
+----表示位置を指定する----
+g_u8setcursol1 = 0
+g_u8setcursol2 = 0
+-------------------------------------
+g_u8setcursol1 = 255
+g_u8setcursol2 = 255
+----表示位置を指定する----
+g_u8setcursol1 = 0
+g_u8setcursol2 = 0
+-------------------------------------
+----文字列を表示する----
+Welcome!
+-------------------------------------
+g_u8setcursol1 = 0
+g_u8setcursol2 = 0
+----表示位置を指定する----
+g_u8setcursol1 = 0
+g_u8setcursol2 = 1
+-------------------------------------
+g_u8setcursol1 = 1
+g_u8setcursol2 = 1
+----表示位置を指定する----
+g_u8setcursol1 = 0
+g_u8setcursol2 = 1
+-------------------------------------
+g_u8setcursol1 = 2
+g_u8setcursol2 = 2
+----表示位置を指定する----
+g_u8setcursol1 = 0
+g_u8setcursol2 = 1
+-------------------------------------
+g_u8setcursol1 = 255
+g_u8setcursol2 = 255
+----表示位置を指定する----
+g_u8setcursol1 = 0
+g_u8setcursol2 = 1
+-------------------------------------
+----文字列を表示する----
+We are T01!
+-------------------------------------
+Press any key to continue

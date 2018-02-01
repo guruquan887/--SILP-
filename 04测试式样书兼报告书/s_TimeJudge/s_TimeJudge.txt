@@ -1,0 +1,299 @@
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 6
+s16Time = 1
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 6
+s16Time = 10
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 6
+s16Time = 19
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 6
+s16Time = 20
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 6
+s16Time = 21
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 6
+s16Time = 100
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 6
+s16Time = 199
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 6
+s16Time = 200
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 6
+s16Time = 201
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 7
+s16Time = -1
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 7
+s16Time = 0
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 7
+s16Time = 1
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 7
+s16Time = 10
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 7
+s16Time = 19
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 7
+s16Time = 20
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 7
+s16Time = 21
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 7
+s16Time = 100
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 7
+s16Time = 199
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 7
+s16Time = 200
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 7
+s16Time = 201
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 8
+s16Time = -1
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 8
+s16Time = 0
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 8
+s16Time = 1
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 8
+s16Time = 10
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 8
+s16Time = 19
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 8
+s16Time = 20
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 8
+s16Time = 21
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 8
+s16Time = 100
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 8
+s16Time = 199
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 8
+s16Time = 200
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 8
+s16Time = 201
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 9
+s16Time = -1
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 9
+s16Time = 0
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 9
+s16Time = 1
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 9
+s16Time = 10
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 9
+s16Time = 19
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 9
+s16Time = 20
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 9
+s16Time = 21
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 9
+s16Time = 100
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 9
+s16Time = 199
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 9
+s16Time = 200
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+****************TESTSTART****************
+u8singalColor[i] = 9
+s16Time = 201
+g_ctTimeSet.m_u8Red = 100
+g_ctTimeSet.m_u8Yellow = 10
+g_ctTimeSet.m_u8Green = 100
+u8Limt = 0
+Press any key to continue

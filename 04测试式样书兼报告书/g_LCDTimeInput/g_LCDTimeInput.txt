@@ -1,0 +1,16 @@
+----****g_LCDTimeInputテスト****----
+-----LCD__setcursolテスト-----
+t_LCDsetcursol = 1(LCD__setcursol 1番目の呼び出し )
+t_setcursol1 = 5
+t_setcursol2 = 0
+*****LCD__putsテスト*****
+（LCD__puts 1番目の呼び出し）
+
+-----LCD__setcursolテスト-----
+t_LCDsetcursol = 2(LCD__setcursol 2番目の呼び出し )
+t_setcursol1 = 5
+t_setcursol2 = 0
+----LCD__putdecテスト----
+ (LCD__putdec 1番目の呼び出し）
+t_dec=1
+Press any key to continue

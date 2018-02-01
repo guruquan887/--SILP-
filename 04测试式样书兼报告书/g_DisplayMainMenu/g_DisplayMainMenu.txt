@@ -1,0 +1,68 @@
+----テストケース----
+
+-------------------------------------
+g_u8LCDclear = 0
+----LCDクリア----
+g_u8LCDclear = 1
+-------------------------------------
+g_u8setcursol1 = 0
+g_u8setcursol2 = 0
+----表示位置を指定する----
+g_u8setcursol1 = 1
+g_u8setcursol2 = 1
+----表示位置を指定する----
+g_u8setcursol1 = 2
+g_u8setcursol2 = 2
+----表示位置を指定する----
+g_u8setcursol1 = 255
+g_u8setcursol2 = 255
+----表示位置を指定する----
+----文字列を表示する----
+1:START
+-------------------------------------
+g_u8setcursol1 = 0
+g_u8setcursol2 = 0
+----表示位置を指定する----
+g_u8setcursol1 = 1
+g_u8setcursol2 = 1
+----表示位置を指定する----
+g_u8setcursol1 = 2
+g_u8setcursol2 = 2
+----表示位置を指定する----
+g_u8setcursol1 = 255
+g_u8setcursol2 = 255
+----表示位置を指定する----
+----文字列を表示する----
+2:PAUSE
+-------------------------------------
+g_u8setcursol1 = 0
+g_u8setcursol2 = 0
+----表示位置を指定する----
+g_u8setcursol1 = 1
+g_u8setcursol2 = 1
+----表示位置を指定する----
+g_u8setcursol1 = 2
+g_u8setcursol2 = 2
+----表示位置を指定する----
+g_u8setcursol1 = 255
+g_u8setcursol2 = 255
+----表示位置を指定する----
+----文字列を表示する----
+3:RESET
+-------------------------------------
+g_u8setcursol1 = 0
+g_u8setcursol2 = 0
+----表示位置を指定する----
+g_u8setcursol1 = 1
+g_u8setcursol2 = 1
+----表示位置を指定する----
+g_u8setcursol1 = 2
+g_u8setcursol2 = 2
+----表示位置を指定する----
+g_u8setcursol1 = 255
+g_u8setcursol2 = 255
+----表示位置を指定する----
+----文字列を表示する----
+4:EDIT
+-------------------------------------
+Press any key to continue

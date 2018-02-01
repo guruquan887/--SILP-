@@ -1,0 +1,158 @@
+----テストケース01----
+g_u8TimerXInit = 0
+----タイマー(TX)初期化----
+g_u8TimerXInit = 1
+------------------------------------------------
+g_u8LedInit = 0
+----LEDモジュールの初期設定----
+g_u8LedInit = 1
+------------------------------------------------
+g_u8ei = 0
+----割り込み許可----
+g_u8ei = 1
+------------------------------------------------
+g_u8DispWel = 0
+----歓迎画面----
+g_u8DispWel = 1
+------------------------------------------------
+g_u82sDelay = 0
+----2秒遅延----
+g_u82sDelay = 1
+------------------------------------------------
+----u8State == 0----
+
+g_bLEDIsRun = 0
+g_ctTimeDown.m_u8Red  = 0
+g_ctTimeDown.m_u8Yellow = 0
+g_ctTimeDown.m_u8Green = 0
+g_SingalSwitch = 0
+g_DispMainError = 0
+g_u82sDelay = 1
+------------------------------------------------
+u8State = 0
+------------------------------------------------
+----u8State == 1----
+
+g_bLEDIsRun = 1
+g_ctTimeDown.m_u8Red  = 0
+g_ctTimeDown.m_u8Yellow = 0
+g_ctTimeDown.m_u8Green = 0
+g_SingalSwitch = 0
+g_DispMainError = 0
+g_u82sDelay = 0
+------------------------------------------------
+u8State = 1
+------------------------------------------------
+----u8State == 2----
+
+g_bLEDIsRun = 0
+g_ctTimeDown.m_u8Red  = 0
+g_ctTimeDown.m_u8Yellow = 0
+g_ctTimeDown.m_u8Green = 0
+g_SingalSwitch = 0
+g_DispMainError = 0
+g_u82sDelay = 0
+------------------------------------------------
+u8State = 2
+------------------------------------------------
+----u8State == 3----
+
+g_bLEDIsRun = 1
+g_ctTimeDown.m_u8Red  = 120
+g_ctTimeDown.m_u8Yellow = 10
+g_ctTimeDown.m_u8Green = 120
+g_SingalSwitch = 0
+g_DispMainError = 0
+g_u82sDelay = 0
+------------------------------------------------
+u8State = 3
+------------------------------------------------
+g_u82sDelay = 0
+----2秒遅延----
+g_u82sDelay = 1
+------------------------------------------------
+----u8State == 4----
+
+g_bLEDIsRun = 1
+g_ctTimeDown.m_u8Red  = 120
+g_ctTimeDown.m_u8Yellow = 10
+g_ctTimeDown.m_u8Green = 120
+g_SingalSwitch = 0
+g_DispMainError = 1
+g_u82sDelay = 1
+------------------------------------------------
+u8State = 4
+------------------------------------------------
+----u8State == 2----
+
+g_bLEDIsRun = 0
+g_ctTimeDown.m_u8Red  = 120
+g_ctTimeDown.m_u8Yellow = 10
+g_ctTimeDown.m_u8Green = 120
+g_SingalSwitch = 0
+g_DispMainError = 0
+g_u82sDelay = 0
+------------------------------------------------
+u8State = 2
+------------------------------------------------
+----u8State == 4----
+
+g_bLEDIsRun = 0
+g_ctTimeDown.m_u8Red  = 120
+g_ctTimeDown.m_u8Yellow = 10
+g_ctTimeDown.m_u8Green = 120
+g_SingalSwitch = 1
+g_DispMainError = 0
+g_u82sDelay = 0
+------------------------------------------------
+u8State = 4
+------------------------------------------------
+----u8State == 5----
+
+g_bLEDIsRun = 0
+g_ctTimeDown.m_u8Red  = 120
+g_ctTimeDown.m_u8Yellow = 10
+g_ctTimeDown.m_u8Green = 120
+g_SingalSwitch = 0
+g_DispMainError = 0
+g_u82sDelay = 0
+------------------------------------------------
+u8State = 5
+------------------------------------------------
+----u8State == 255----
+
+g_bLEDIsRun = 0
+g_ctTimeDown.m_u8Red  = 120
+g_ctTimeDown.m_u8Yellow = 10
+g_ctTimeDown.m_u8Green = 120
+g_SingalSwitch = 0
+g_DispMainError = 0
+g_u82sDelay = 0
+------------------------------------------------
+u8State = 255
+------------------------------------------------
+----u8State == 42----
+
+g_bLEDIsRun = 0
+g_ctTimeDown.m_u8Red  = 120
+g_ctTimeDown.m_u8Yellow = 10
+g_ctTimeDown.m_u8Green = 120
+g_SingalSwitch = 0
+g_DispMainError = 0
+g_u82sDelay = 0
+------------------------------------------------
+u8State = 42
+------------------------------------------------
+----u8State == 35----
+
+g_bLEDIsRun = 0
+g_ctTimeDown.m_u8Red  = 120
+g_ctTimeDown.m_u8Yellow = 10
+g_ctTimeDown.m_u8Green = 120
+g_SingalSwitch = 0
+g_DispMainError = 0
+g_u82sDelay = 0
+------------------------------------------------
+u8State = 35
+------------------------------------------------
+Press any key to continue
